@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+    <title>Stock Market - Not as Complicated as You Think</title>
+	
+	<link rel="icon" type="images/png" href="imgs/MMIcon.png">
+    <link rel="stylesheet" href="styles.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+	
+    <div class="wrapper">
+		
+        <header class="header navbar">
+
+            <div class="headContent">
+                <img class="logo" src="imgs/MMlogo.png" alt="Money Matters Logo">
+            </div>
+			
+			<div class="mainTitle">
+				<h1 class="pgTitle">The Stock Market</h1>
+			</div>
+
+            <nav class="navlink">
+                <ul>
+                    <a class="nav" href="index.html">Home</a>
+                    <a class="nav" href="payments.html">Payments</a>
+                    <a class="nav" href="budget.html">Budget</a>
+                    <a class="nav active" href="stocks.html">Stocks</a>
+                </ul>
+            </nav>
+			
+        </header>
+
+        <main class="floatTop">
+		
+            <aside class="aside aside1">
+                <h2>Current Market Trends</h2>
+				
+				<!-- TradingView Widget BEGIN -->
+				<div class="tradingview-widget-container center">
+				<div class="tradingview-widget-container__widget"></div>
+				<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/" rel="noopener" target="_blank"><span class="blue-text">Financial Markets by TradingView</span></a></div>
+				<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+				  {
+				  "colorTheme": "dark",
+				  "dateRange": "12M",
+				  "showChart": true,
+				  "locale": "en",
+				  "largeChartUrl": "",
+				  "isTransparent": false,
+				  "showSymbolLogo": true,
+				  "showFloatingTooltip": false,
+				  "width": "90%",
+				  "height": "660",
+				  "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+				  "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+				  "gridLineColor": "rgba(240, 243, 250, 0)",
+				  "scaleFontColor": "rgba(120, 123, 134, 1)",
+				  "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+				  "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+				  "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+				  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+				  "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+				  "tabs": [
+					{
+					  "title": "Indices",
+					  "symbols": [
+						{
+						  "s": "FOREXCOM:SPXUSD",
+						  "d": "S&P 500"
+						},
+						{
+						  "s": "FOREXCOM:NSXUSD",
+						  "d": "Nasdaq 100"
+						},
+						{
+						  "s": "FOREXCOM:DJI",
+						  "d": "Dow 30"
+						},
+						{
+						  "s": "INDEX:NKY",
+						  "d": "Nikkei 225"
+						},
+						{
+						  "s": "INDEX:DEU40",
+						  "d": "DAX Index"
+						},
+						{
+						  "s": "FOREXCOM:UKXGBP",
+						  "d": "UK 100"
+						}
+					  ],
+					  "originalTitle": "Indices"
+					},
+					{
+					  "title": "Futures",
+					  "symbols": [
+						{
+						  "s": "CME_MINI:ES1!",
+						  "d": "S&P 500"
+						},
+						{
+						  "s": "CME:6E1!",
+						  "d": "Euro"
+						},
+						{
+						  "s": "COMEX:GC1!",
+						  "d": "Gold"
+						},
+						{
+						  "s": "NYMEX:CL1!",
+						  "d": "Crude Oil"
+						},
+						{
+						  "s": "NYMEX:NG1!",
+						  "d": "Natural Gas"
+						},
+						{
+						  "s": "CBOT:ZC1!",
+						  "d": "Corn"
+						}
+					  ],
+					  "originalTitle": "Futures"
+					},
+					{
+					  "title": "Bonds",
+					  "symbols": [
+						{
+						  "s": "CME:GE1!",
+						  "d": "Eurodollar"
+						},
+						{
+						  "s": "CBOT:ZB1!",
+						  "d": "T-Bond"
+						},
+						{
+						  "s": "CBOT:UB1!",
+						  "d": "Ultra T-Bond"
+						},
+						{
+						  "s": "EUREX:FGBL1!",
+						  "d": "Euro Bund"
+						},
+						{
+						  "s": "EUREX:FBTP1!",
+						  "d": "Euro BTP"
+						},
+						{
+						  "s": "EUREX:FGBM1!",
+						  "d": "Euro BOBL"
+						}
+					  ],
+					  "originalTitle": "Bonds"
+					},
+					{
+					  "title": "Forex",
+					  "symbols": [
+						{
+						  "s": "FX:EURUSD"
+						},
+						{
+						  "s": "FX:GBPUSD"
+						},
+						{
+						  "s": "FX:USDJPY"
+						},
+						{
+						  "s": "FX:USDCHF"
+						},
+						{
+						  "s": "FX:AUDUSD"
+						},
+						{
+						  "s": "FX:USDCAD"
+						}
+					  ],
+					  "originalTitle": "Forex"
+					}
+				  ]
+				  }
+				</script>
+				</div>
+				<!-- TradingView Widget END -->
+            </aside>
+			
+            <aside class="aside aside2 asideMargin3">
+                <h2>How Does it Work?</h2>
+				<p>The stock market refers to exchanges of stocks in an over-the-counter (OTC) market. This means that anyone can trade money for stocks and vice versa. A stock is a portion of a company that you can own, although usually it is a tiny percentage. For example, 1 share of a big company may be worth several hundred dollars, but there are billions of shares on the market. The reason for so many is to lower the cost of each individual stock so that more people can invest in the company, as not everyone can afford higher prices. As the company grows, their stock price rises. If you own stock in a company, the value of those stocks increases along with the company.</p>
+				<h2>Splitting and Investment Types</h2>
+				<p>As the stock price rises, a company may choose to split their stocks. This means they create more stocks, but cheaper ones. For example, let's say you own 5 shares of a company worth $100 each. This means your stocks are worth $500 together. If the company were to split, you may now own 10 shares worth $50 each. This still equates to $500, but now the price to buy a single stock is lower. The stock market fluctuates throughout the day, even down to the second. Stocks rise and drop by a few cents all the time. Buying and selling them quickly in hopes of gaining a small amount of money per transaction is known as 'day trading.' Others, especially those who don't want to dedicate much time to the stock market, prefer to buy stocks they think will grow over long periods of time. This is how investing in the stock market works.</p>
+				<h2>Mutual Funds and Market Types</h2>
+				<p>Another form of investing is through mutual funds. A mutual fund gathers money from different people and spreads it among different stocks. This can be a less risky option because the money is spread out among many different companies, meaning if one particular company begins to lose value, investors will not lose as much money. However, there are times in the stock market when nearly all companies decline. This is called a 'bear market.' During this time, many investors use a strategy known as 'averaging down,' which means they purchase more stocks while the price is lower and hope for the price to increase in the future. If the market as a whole is increasing in value, it is called a 'bull market.'</p>
+				<h2>How to Read the Market</h2>
+				<p>Overall, the stock market tends to trend upwards, so long term investing strategies often gain money, especially if left for years. Using this chart, you can see how the market has performed over certain time periods, such as the last day, (1D) month (1M), or year. (1Y)</p>
+            </aside>
+			
+        </main>
+
+        <footer></footer>
+
+    </div>
+	
+</body>
+
+</html>

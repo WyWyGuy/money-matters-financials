@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+    <title>Debt Calculator - How Long to Be Debt Free?</title>
+	
+	<link rel="icon" type="images/png" href="imgs/MMIcon.png">
+    <link rel="stylesheet" href="styles.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+	
+    <div class="wrapper">
+	
+        <header class="header navbar">
+			
+            <div class="headContent">
+                <img class="logo" src="imgs/MMlogo.png" alt="Money Matters Logo">
+            </div>
+			
+			<div class="mainTitle">
+				<h1 class="pgTitle">Debt Calculator</h1>
+			</div>
+
+            <nav class="navlink">
+                <ul>
+                    <a class="nav" href="index.html">Home</a>
+                    <a class="nav active" href="payments.html">Payments</a>
+                    <a class="nav" href="budget.html">Budget</a>
+                    <a class="nav" href="stocks.html">Stocks</a>
+                </ul>
+            </nav>
+			
+        </header>
+
+        <main>
+			
+            <div class="main">
+                <h2>What is this?</h2>
+				<p class="textSize">This page helps you understand and create long-term goals for your money. It works by calculating the monthly cost of your house based on the mortgage left, years remaining on the mortgage, and interest rate on the house. This calculator also can determine how long it will take to pay off other debts, such as credit cards, cars, and student loans. Input how much money is left on the debt, the minimum payment required, and the interest rate. Click 'Calculate' to get a real estimate of how long it will take to pay off the debt. Afterwards, consider using our <a class="inlink" href="budget.html">budget generator</a> to create a monthly budget!</p>
+            </div>
+			
+            <aside class="aside aside1 wideSide asideMargin1">
+                <h2>Mortgage Calculator</h2>
+				<input type="number" id="housecost" placeholder="House Mortgage Owed">
+                <input type="number" id="houseyears" placeholder="House Morgage Years">
+                <input type="number" id="houserate" placeholder="House Annual Interest Rate">
+				<br/>
+				<button type="button" onclick=calculateHouse()>Calculate</button>
+				<p class="textCenter textSize" id="output2"></p>
+			</aside>
+			
+            <aside class="aside aside2 wideSide asideMargin1">
+                <h2>Other Debts Calculator</h2>
+				<input type="number" id="debtcost" placeholder="Debt Amount">
+                <input type="number" id="debtpay" placeholder="Debt Minimum Payment">
+                <input type="number" id="debtrate" placeholder="Debt Interest Rate">
+				<br/>
+				<button type="button" onclick=calculateDebt()>Calculate</button>
+                <p class="textCenter textSize" id="output"></p>
+            </aside>
+			
+        </main>
+
+        <footer></footer>
+		
+    </div>
+	
+	
+	
+    <script>
+
+        function calculateHouse() {
+            /*Get Variables*/
+            var housecost = document.getElementById('housecost').value;
+            var houseyears = document.getElementById('houseyears').value;
+            var houserate = document.getElementById('houserate').value;
+
+            /*Format as Needed*/
+            houserate = houserate / 100 / 12
+            houseyears = houseyears * 12
+
+            /*Calculations*/
+            housemonths = housecost * ((houserate * Math.pow((1 + houserate), houseyears)) / ((Math.pow((1 + houserate), houseyears)) - 1))
+
+            /*Output*/
+            if (isNaN(housemonths)) {
+                document.getElementById('output2').innerHTML = "Invalid input.";
+            } else { document.getElementById('output2').innerHTML = "$" + housemonths.toFixed(2) + " per month to pay off house."; }
+        }
+		
+		function calculateDebt() {
+            /*Get Variables*/
+			var debtcost = document.getElementById('debtcost').value;
+            var debtpay = document.getElementById('debtpay').value;
+            var debtrate = document.getElementById('debtrate').value;
+			
+			/*Format as Needed*/
+			debtrate = debtrate / 100
+			
+            /*Calculations*/
+			months = -1 / 30 * Math.log(1 + (1 - Math.pow(1 + debtrate / 365, 30)) * (debtcost / debtpay)) / (Math.log(1 + debtrate / 365))
+			
+            /*Output*/
+            if (isNaN(months)) {
+                document.getElementById('output').innerHTML = "The interest is higher than your monthly payment can afford.";
+            } else { document.getElementById('output').innerHTML = months.toFixed(1) + " months to pay off debt."; }
+		}
+		
+    </script>
+
+</body>
+
+</html>
