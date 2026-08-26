@@ -1,2 +1,1 @@
-# shared-senior-project
-# A Project to Create a Financial Planning Website
+# A Shared Senior Project to Create a Financial Planning Website
