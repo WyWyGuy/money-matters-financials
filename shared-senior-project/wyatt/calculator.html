@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Title</title>
+
+<style type="text/css" media="all">
+
+
+
+</style>
+
+</head>
+
+
+<body>
+	
+	<h1>Input Your Informations</h1>
+	
+	<p>House Mortgage Owed:</p>
+	<input type="number" id="housecost">
+	<p>House Mortgage Years:</p>
+	<input type="number" id="houseyears">
+	<p>House Mortgage Annual Interest Rate:</p>
+	<input type="number" id="houserate">
+	<p>Debt Amount:</p>
+	<input type="number" id="debtcost">
+	<p>Debt Minimum Payment:</p>
+	<input type="number" id="debtpay">
+	<p>Debt Interest Rate:</p>
+	<input type="number" id="debtrate">
+	
+	<br/>
+	<br/>
+	
+	<button type="button" onclick=calculate()>Calculate</button>
+	<p id="output"></p>
+	<p id="output2"></p>
+
+	<script>
+		
+	function calculate() {
+		/*Get Variables*/
+		var housecost = document.getElementById('housecost').value;
+		var houseyears = document.getElementById('houseyears').value;
+		var houserate = document.getElementById('houserate').value;
+		var debtcost = document.getElementById('debtcost').value;
+		var debtpay = document.getElementById('debtpay').value;
+		var debtrate = document.getElementById('debtrate').value;
+		
+		/*Format as Needed*/
+		debtrate = debtrate/100
+		houserate = houserate/100/12
+		houseyears = houseyears*12
+		
+		/*Calculations*/
+		months = -1/30*Math.log(1+(1-Math.pow(1+debtrate/365, 30))*(debtcost/debtpay))/(Math.log(1+debtrate/365))
+		housemonths = housecost*((houserate*Math.pow((1+houserate),houseyears))/((Math.pow((1+houserate),houseyears))-1))
+		
+		/*Output*/
+		if (isNaN(months)) {
+			document.getElementById('output').innerHTML = "This debt is impossible.";
+		} else {document.getElementById('output').innerHTML = months.toFixed(1) + " Months to pay off debt";}
+		if (isNaN(housemonths)) {
+			document.getElementById('output2').innerHTML = "This debt is impossible.";
+		} else {document.getElementById('output2').innerHTML = "$" + housemonths.toFixed(2) + " per month to pay off house";}
+	}
+		
+	</script>
+	
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+    <title>Budget Summary - See Where Every Dollar Goes!</title>
+	
+	<link rel="icon" type="images/png" href="imgs/MMIcon.png">
+    <link rel="stylesheet" href="styles.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+	
+    <div class="wrapper">
+		
+        <header class="header navbar">
+
+            <div class="headContent">
+                <img class="logo" src="imgs/MMlogo.png" alt="Money Matters Logo">
+            </div>
+			
+			<div class="mainTitle">
+				<h1 class="pgTitle">Budget Planning</h1>
+			</div>
+
+            <nav class="navlink">
+                <ul>
+                    <a class="nav" href="index.html">Home</a>
+                    <a class="nav" href="payments.html">Payments</a>
+                    <a class="nav active" href="budget.html">Budget</a>
+                    <a class="nav" href="stocks.html">Stocks</a>
+                </ul>
+            </nav>
+			
+        </header>
+
+        <main>
+			
+			<aside class="aside asideBudget asideMargin2">
+                <h2>View Your Budget</h2>
+				<p class="textSize">
+					This is budget generator to help you visualize where your money is going for your monthly payments. You can use it to plan your budget or create an example budget. Start by typing in your monthly income and then add your monthly expenses below. It will add up all your costs added and calculate how much you have left after monthly expenses. If your budget is a good one, you should have excess money left over at the end of each month. If you don't, try to adjust the amount you are spending each month to lower your expenses.
+				</p>
+            </aside>
+			
+            <article class="main">
+				<h2>Enter Your Monthly Expenses Below</h2>
+				<input type="number" id="income" placeholder="Monthly Income">
+				<hr/>
+				<input type="text" id="type" placeholder="Expense Name">
+				<br/>
+				<input type="number" id="amount" placeholder="Monthly Cost">
+				<br/>
+				<button type="button" onclick=addbox()>Add Expense</button>
+				<br/>
+				<br/>
+				<button type="button" onclick=calculate()>Create Budget</button>
+				
+				<div id="container">
+					
+				</div>
+				
+				<br/>
+				<div id="output1"></div>
+				<div id="output2"></div>
+				<div id="output3"></div>
+				<br/>
+				<button type="button" onclick=resetForm()>Clear</button>
+            </article>
+			
+        </main>
+
+        <footer></footer>
+
+    </div>
+	
+	
+	
+	<script>
+		
+		var created = 0;
+		var num = 1;
+		var expenses = parseFloat(0);
+		
+		function addbox() {
+			var type = document.getElementById('type').value;
+			var amount = parseFloat(document.getElementById('amount').value);
+			if (type != "") {
+				if ((!isNaN(amount)) && (amount > 0)) {
+					document.getElementById('container').innerHTML += "<div class='tableItem' id='box-" + num + "'>Title: <span class='highlight'>" + type + ". </span> Cost: $" + amount + "<button type='button' class='removable' onclick=remove(" + num + "," + amount + ")>X</button></div>";
+					num += 1;
+					expenses += parseFloat(amount);
+					document.getElementById('type').value = "";
+					document.getElementById('amount').value = "";
+				}
+			}
+		}
+		
+		function remove(identify, amount) {
+			deleteme = document.getElementById("box-" + identify)
+			deleteme.remove();
+			expenses -= parseFloat(amount);
+			if (created == 1) {
+				calculate();
+			}
+		}
+		
+		function calculate() {
+			created = 1;
+			var income = document.getElementById('income').value;
+			if (income != "") {
+				document.getElementById('output1').innerHTML = "Your Monthly Income: $" + income;
+				document.getElementById('output2').innerHTML = "Your Total Monthly Expenses: $" + expenses;
+				document.getElementById('output3').innerHTML = "Money Leftover Per Month: $" + (income-expenses);
+			}
+		}
+		
+		function resetForm() {
+			location.reload();
+		}
+		
+	</script>
+	
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Title</title>
+
+<style type="text/css" media="all">
+
+
+
+</style>
+
+</head>
+
+
+<body>
+	
+	<p>Monthly Income: </p>
+	<input type="number" id="income">
+	<br/><br/>
+	<button type="button" onclick=calculate()>Create Budget</button>
+	<hr/>
+	<p>Expense Name: </p>
+	<input type="text" id="type">
+	<p>Monthly Cost: </p>
+	<input type="number" id="amount">
+	<br/><br/>
+	<button type="button" onclick=addbox()>Add Expense</button>
+	
+	<div id="container">
+		
+	</div>
+	
+	<br/><br/>
+	
+	<div id="output1"></div>
+	<div id="output2"></div>
+	<div id="output3"></div>
+	
+	<script>
+		
+		var num = 1;
+		var expenses = parseFloat(0);
+		
+		function addbox() {
+			var type = document.getElementById('type').value;
+			var amount = document.getElementById('amount').value;
+			document.getElementById('container').innerHTML += "<div class='' id='box-" + num + "'>Cost Type: " + type + ". Cost Amount: " + amount + "<button type='button' onclick=remove(" + num + "," + amount + ")>X</button></div>";
+			num += 1;
+			expenses += parseFloat(amount);
+		}
+		
+		function remove(identify, amount) {
+			deleteme = document.getElementById("box-" + identify)
+			deleteme.remove();
+			expenses -= parseFloat(amount);
+		}
+		
+		function calculate() {
+			var income = document.getElementById('income').value;
+			document.getElementById('output1').innerHTML = "Your Monthly Income: " + income;
+			document.getElementById('output2').innerHTML = "Your Monthly Expenses: " + expenses;
+			document.getElementById('output3').innerHTML = "Your Extra Money Per Month: " + (income-expenses);
+		}
+		
+	</script>
+	
+</body>
+
+</html>
